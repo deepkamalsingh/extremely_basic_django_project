@@ -3,4 +3,14 @@
 {% block abc %}
 <h1>{{title}} wow (id : {{id}})</h1>
 <p>{{content}}</p>
+<ul>
+    {% for x in article_list %}
+        {% if x.title != 'deep' %}
+            <li><a href="/articles/{{x.id}}">{{x.title}} - {{x.content}}</li>
+        {% endif %}    
+    {% endfor %}
+</ul>
 {% endblock abc %}
+
+
+
