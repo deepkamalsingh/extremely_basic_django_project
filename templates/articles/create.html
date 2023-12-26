@@ -3,10 +3,10 @@
 {% block abc %}
 
 {% if not created %}:
+
 <form method="POST" action=".">
     {% csrf_token %}
-    <div style='margin-top:30px;'><input type="text" name="title" placeholder="Title"/></div>
-    <div style='margin-top:10px;'></div><textarea name="content" placeholder="Content"></textarea></div>
+    {{ form.as_p }}
     <div></div><button type="submit">Create article</button></div>
 </form>
 {% else %}
