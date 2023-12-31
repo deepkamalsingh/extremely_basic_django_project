@@ -1,3 +1,4 @@
 try-django.code-workspace
 bin 
 lib/
+__pycache__/

@@ -7,13 +7,12 @@
 <form method="POST" action=".">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Login</button>
+    <button type="submit">Register</button>
+    <p>Already have an account ? <a href="/login"> Login </a></p>
 </form>
-    <p>Need an account ? <a href="/register"> register </a></p>
-
 </div>
 {% else %}
-<p> you are already logged in. Would you like to <a href="/logout/">logout</a> ?</p>
+<p> you are already logged in and cannot register. Would you like to <a href="/logout/">logout</a> ?</p>
 {% endif %}
 
 

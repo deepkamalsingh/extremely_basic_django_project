@@ -34,14 +34,9 @@ def article_detail_view(request, id):
 # @csrf_exempt
 @login_required
 def article_create_view(request):
-    form = ArticleForm()
+    form = ArticleForm(request.POST or None)
     context = {"form" : form}
-    if request.method == "POST": 
-        form = ArticleForm(request.POST)
-        if form.is_valid():
-            title = form.cleaned_data.get("title")
-            content = form.cleaned_data.get("content")
-            obj = Article.objects.create(title=title,content=content)
-            context["obj"] = obj 
-            context["created"] = True
+    if form.is_valid():
+        obj = form.save()
+        context["form"] = ArticleForm()
     return render(request,'articles/create.html',context=context)
